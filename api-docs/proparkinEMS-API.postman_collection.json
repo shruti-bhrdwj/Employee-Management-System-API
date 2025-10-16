@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Employee Management System API",
+    "description": "EMS Portal to manage employees of a company",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "ems-api-collection",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Add Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"John Doe\",\n  \"department\": \"Engineering\",\n  \"salary\": 75000.00\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees"]
+        },
+        "description": "Add a new employee to the system"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Employee by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Employee ID"
+            }
+          ]
+        },
+        "description": "Retrieve an employee by their ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Employees by Department",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees/department/:department",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees", "department", ":department"],
+          "variable": [
+            {
+              "key": "department",
+              "value": "Engineering",
+              "description": "Department name"
+            }
+          ]
+        },
+        "description": "Get all employees in a specific department"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Average Salary by Department",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees/department/:department/average-salary",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees", "department", ":department", "average-salary"],
+          "variable": [
+            {
+              "key": "department",
+              "value": "Engineering",
+              "description": "Department name"
+            }
+          ]
+        },
+        "description": "Calculate average salary for a specific department"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Highest Paid Employee",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees/highest-paid",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees", "highest-paid"]
+        },
+        "description": "Retrieve the employee with the highest salary"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Employee",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/employees/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "employees", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Employee ID to delete"
+            }
+          ]
+        },
+        "description": "Delete an employee by their ID"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
